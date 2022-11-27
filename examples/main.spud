@@ -1,0 +1,11 @@
+import print from 'print'
+import max from './max'
+import sum from './sum'
+import product from './product'
+
+function main
+
+	uint four = max(3, 4)
+	uint nine = sum(four, 5)
+	uint eighteen = product(2, nine)
+	print(eighteen)

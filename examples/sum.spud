@@ -1,0 +1,6 @@
+function sum
+	+ uint a
+	+ uint b
+	> uint
+
+	return a + b

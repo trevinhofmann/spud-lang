@@ -1,0 +1,32 @@
+{
+  "name": "spud-lang",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "lint": "eslint src --ext .ts",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Unlicense",
+  "dependencies": {
+    "eleventh": "1.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.9",
+    "@typescript-eslint/eslint-plugin": "4.33.0",
+    "@typescript-eslint/parser": "4.33.0",
+    "eslint": "7.32.0",
+    "eslint-config-principled": "1.1.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-jest": "24.1.5",
+    "eslint-plugin-react": "7.31.11",
+    "eslint-plugin-react-hooks": "4.6.0",
+    "typescript": "4.9.3"
+  }
+}

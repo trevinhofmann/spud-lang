@@ -1,0 +1,10 @@
+function two_sum
+	+ uint[] nums
+	+ uint target
+	> [uint, uint]
+
+	for uint i in {1 -> nums.length - 1}
+		uint matching_index = positions[target - nums[i]]
+		if (matchingIndex != undefined)
+			return [matching_index, i]
+		positions[nums[i]] = i

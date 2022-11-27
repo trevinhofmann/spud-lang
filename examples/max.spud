@@ -1,0 +1,9 @@
+// This line is a comment
+function max
+	+ uint a
+	+ uint b
+	> uint
+
+	if a > b
+		return a
+	return b

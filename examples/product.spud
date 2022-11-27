@@ -1,0 +1,6 @@
+function product
+	+ uint a
+	+ uint b
+	> uint
+
+	return a * b
