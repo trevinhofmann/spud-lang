@@ -77,4 +77,12 @@ export default [
     characters: '!',
     type: TokenType.Not,
   },
+  {
+    characters: '(',
+    type: TokenType.ParenthesisOpen,
+  },
+  {
+    characters: ')',
+    type: TokenType.ParenthesisClose,
+  },
 ];

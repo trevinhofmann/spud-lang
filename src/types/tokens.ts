@@ -21,6 +21,8 @@ export enum TokenType {
   Greater = 'Greater',
   Less = 'Less',
   Not = 'Not',
+  ParenthesisOpen = 'ParenthesisOpen',
+  ParenthesisClose = 'ParenthesisClose',
   // Numbers
   Integer = 'Integer',
   // Words
