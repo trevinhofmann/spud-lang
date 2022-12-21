@@ -85,4 +85,8 @@ export default [
     characters: ')',
     type: TokenType.ParenthesisClose,
   },
+  {
+    characters: '\n',
+    type: TokenType.Newline,
+  },
 ];

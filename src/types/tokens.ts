@@ -12,6 +12,7 @@ export enum TokenType {
   LessEquals = 'LessEquals',
   Tab = 'Tab',
   Space = 'Space',
+  Newline = 'Newline',
   Plus = 'Plus',
   Minus = 'Minus',
   Asterisk = 'Asterisk',
