@@ -1,0 +1,15 @@
+export enum Type {
+  Boolean = 'Boolean',
+  String = 'String',
+  Undefined = 'Undefined',
+  Uint = 'Uint',
+  Int = 'Int',
+  Uint8 = 'Uint8',
+  Int8 = 'Int8',
+  Uint16 = 'Uint16',
+  Int16 = 'Int16',
+  Uint32 = 'Uint32',
+  Int32 = 'Int32',
+  Uint64 = 'Uint64',
+  Int64 = 'Int64',
+}
