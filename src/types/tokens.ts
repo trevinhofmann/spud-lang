@@ -1,5 +1,3 @@
-import type { Line } from './lines';
-
 export enum TokenType {
   // Symbols
   EqualsEquals = 'EqualsEquals',
@@ -62,7 +60,7 @@ export type PartialToken = {
 export type Token = {
   type: TokenType;
   characters: string;
-  line: Line;
+  line: number;
   colStart: number;
   colEnd: number;
 };

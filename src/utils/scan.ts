@@ -1,6 +1,5 @@
 import Logger from 'eleventh';
 import { TokenType } from '../types/tokens';
-import type { Line } from '../types/lines';
 import type { Token, PartialToken } from '../types/tokens';
 import symbols from './symbols';
 import reservedWords from './reservedWords';
@@ -68,16 +67,12 @@ const scanners = [
   wordScanner,
 ];
 
-const scanLine = (characters: string, lineNumber: number): Line => {
+export default (characters: string): Token[] => {
+  let lineNumber = 1;
   let i = 0;
   let remainingText = characters;
   const tokens: Token[] = [];
-  const line: Line = {
-    lineNumber,
-    characters,
-    tokens,
-  };
-  while (i < characters.length) {
+  while (remainingText.length > 0) {
     const partialToken = scanners.reduce<PartialToken | undefined>(
       (token, scanner) => token ?? scanner(remainingText),
       undefined,
@@ -88,18 +83,17 @@ const scanLine = (characters: string, lineNumber: number): Line => {
     Logger.info('Scanned token', { tokenType: partialToken.type, characters: partialToken.characters });
     tokens.push({
       ...partialToken,
-      line,
+      line: lineNumber,
       colStart: i,
       colEnd: i + partialToken.characters.length,
     });
-    i += partialToken.characters.length;
+    if (partialToken.type === TokenType.Newline) {
+      i = 0;
+      lineNumber += 1;
+    } else {
+      i += partialToken.characters.length;
+    }
     remainingText = remainingText.slice(partialToken.characters.length);
   }
-  return line;
+  return tokens;
 };
-
-export const scanLines = (file: string): Line[] => (
-  file
-    .split('\n')
-    .map((characters, i) => scanLine(characters, i + 1))
-);
