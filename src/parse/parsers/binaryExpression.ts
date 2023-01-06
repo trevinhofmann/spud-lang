@@ -6,6 +6,11 @@ import type TokenStream from '../TokenStream';
 import subbinaryExpression from './subbinaryExpression';
 import binaryOperator from './binaryOperator';
 
+// TODO: consider implementing this recursively.
+// More details in the comment at the end of this file.
+
+// TODO: consider left-associative and right-associative, not only precedence?
+
 const continuation = (tokenStream: TokenStream): void => {
   tokenStream.readTokenType(TokenType.Space);
   tokenStream.read(binaryOperator);
@@ -48,3 +53,62 @@ export default (tokenStream: TokenStream): BinaryExpression => {
     right: expressions[1],
   };
 };
+
+/*
+
+The current implementation above is O(n^2) for 'n' operators because we need to
+iterate (approximately halfway) through the list of tokens once for each
+operator. A recursive implementation that simply works left-to-rght once ought
+to be possible, which would perform in O(n).
+
+While the performance difference in the recursive implementation is unlikely to
+matter in typical scenarios (one would not typically write very length binary
+expressions such as "1 + 2 + 3 + ... + 9998 + 9999 + 10000"), I would still like
+to implement it that way at least once because I struggled for about 3 days with
+that approach before giving up and using the current approach. It would be a fun
+exercise to complete.
+
+To visualize the differences, here is an example that I will demonstrate with
+each approach: 1 * 2 + 3 + 4 * 5 + 6 / 7 - 8
+
+Current approach:
+  * Step 0: 1 * 2 + 3 + 4 * 5 + 6 / 7 - 8
+  * Step 1: (1*2) + 3 + 4 * 5 + 6 / 7 - 8
+  * Step 2: (1*2) + 3 + (4*5) + 6 / 7 - 8
+  * Step 3: (1*2) + 3 + (4*5) + (6/7) - 8
+  * Step 4: ((1*2)+3) + (4*5) + (6/7) - 8
+  * Step 5: (((1*2)+3)+(4*5)) + (6/7) - 8
+  * Step 6: ((((1*2)+3)+(4*5))+(6/7)) - 8
+  * Step 7: (((((1*2)+3)+(4*5))+(6/7))-8)
+
+Recursive approach:
+  * Step 0: 1 * 2 + 3 + 4 * 5 + 6 / 7 - 8
+  * Step 1: (1*2) + 3 + 4 * 5 + 6 / 7 - 8
+  * Step 2: ((1*2)+3) + 4 * 5 + 6 / 7 - 8
+  * Step 3: ((1*2)+3)+(4 * 5 + 6 / 7 - 8)
+  * Step 4: ((1*2)+3)+((4*5) + 6 / 7 - 8)
+  * Step 5: ((1*2)+3)+((4*5)+(6 / 7 - 8))
+  * Step 6: ((1*2)+3)+((4*5)+((6/7) - 8))
+  * Step 7: ((1*2)+3)+((4*5)+(((6/7)-8)))
+
+It is concerning that the two results are different, although seemingly correct
+and evaluating to the same result. This needs further consideration.
+
+Here's an imperfect pseudocode implementation of the recursive approach:
+
+function parse(tokens)
+  let left = read(operand)
+  let operator = read(operator)
+  let right = peek(operand)
+
+  while has(nextOperator)
+    let nextOperator = peeK(nextOperator)
+    if nextOperator <= operator
+      right = read(operand)
+      left = (left, operator, right)
+      operator = read(operator)
+      right = peek(operand)
+    else
+      right = parse(tokens)
+
+*/
