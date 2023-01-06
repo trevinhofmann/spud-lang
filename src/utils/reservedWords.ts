@@ -2,6 +2,14 @@ import { TokenType } from '../types/tokens';
 
 export default [
   {
+    characters: 'import',
+    type: TokenType.Import,
+  },
+  {
+    characters: 'from',
+    type: TokenType.From,
+  },
+  {
     characters: 'for',
     type: TokenType.For,
   },
@@ -28,6 +36,14 @@ export default [
   {
     characters: 'return',
     type: TokenType.Return,
+  },
+  {
+    characters: 'false',
+    type: TokenType.BooleanLiteral,
+  },
+  {
+    characters: 'true',
+    type: TokenType.BooleanLiteral,
   },
   {
     characters: 'boolean',

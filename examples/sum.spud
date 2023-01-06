@@ -3,4 +3,5 @@ function sum
 	+ uint b
 	> uint
 
+	a = 4 + 5
 	return a + b

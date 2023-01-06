@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`program function sum
+	+ uint a
+	+ uint b
+	> uint
+
+	a = 4 + 5
+	return a + b
+ 1`] = `
+{
+  "declarations": [
+    {
+      "body": [
+        {
+          "left": {
+            "name": "a",
+            "type": "UntypedVariable",
+          },
+          "operator": "Assignment",
+          "right": {
+            "left": {
+              "type": "NumericLiteral",
+              "value": "4",
+            },
+            "operator": "Addition",
+            "right": {
+              "type": "NumericLiteral",
+              "value": "5",
+            },
+            "type": "BinaryExpression",
+          },
+          "type": "AssignmentStatement",
+        },
+        {
+          "child": {
+            "left": {
+              "name": "a",
+              "type": "UntypedVariable",
+            },
+            "operator": "Addition",
+            "right": {
+              "name": "b",
+              "type": "UntypedVariable",
+            },
+            "type": "BinaryExpression",
+          },
+          "type": "ReturnStatement",
+        },
+      ],
+      "name": "sum",
+      "parameters": [
+        {
+          "name": "a",
+          "type": "TypedVariable",
+          "variableType": "Uint",
+        },
+        {
+          "name": "b",
+          "type": "TypedVariable",
+          "variableType": "Uint",
+        },
+      ],
+      "returnType": "Uint",
+      "type": "FunctionDeclaration",
+    },
+  ],
+  "statements": [],
+  "type": "Program",
+}
+`;

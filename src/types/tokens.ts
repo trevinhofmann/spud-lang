@@ -17,14 +17,19 @@ export enum TokenType {
   ForwardSlash = 'ForwardSlash',
   Equals = 'Equals',
   Colon = 'Colon',
+  Comma = 'Comma',
   Greater = 'Greater',
   Less = 'Less',
   Not = 'Not',
   ParenthesisOpen = 'ParenthesisOpen',
   ParenthesisClose = 'ParenthesisClose',
-  // Numbers
-  Integer = 'Integer',
+  // Literals
+  IntegerLiteral = 'IntegerLiteral',
+  StringLiteral = 'StringLiteral',
+  BooleanLiteral = 'BooleanLiteral',
   // Words
+  Import = 'Import',
+  From = 'From',
   For = 'For',
   In = 'In',
   While = 'While',

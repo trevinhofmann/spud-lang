@@ -66,6 +66,10 @@ export default [
     type: TokenType.Colon,
   },
   {
+    characters: ',',
+    type: TokenType.Comma,
+  },
+  {
     characters: '>',
     type: TokenType.Greater,
   },

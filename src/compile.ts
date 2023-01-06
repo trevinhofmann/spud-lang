@@ -1,8 +1,12 @@
 import scan from './utils/scan';
+import parse from './parse';
 
 export default (file: string): string => {
   const tokens = scan(file);
 
-  // TODO:
-  return tokens.map(token => `[${token.type}]`).join('\n');
+  console.log(tokens.map((token, i) => `${i}: [${token.type}]`).join('\n'));
+
+  const ast = parse(tokens);
+
+  return JSON.stringify(ast);
 };

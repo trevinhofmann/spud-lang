@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`binaryExpression 1 * 2 + 3 1`] = `
+{
+  "left": {
+    "left": {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "Multiplication",
+    "right": {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    "type": "BinaryExpression",
+  },
+  "operator": "Addition",
+  "right": {
+    "type": "NumericLiteral",
+    "value": "3",
+  },
+  "type": "BinaryExpression",
+}
+`;
+
+exports[`binaryExpression 1 + 2 + 3 1`] = `
+{
+  "left": {
+    "left": {
+      "type": "NumericLiteral",
+      "value": "1",
+    },
+    "operator": "Addition",
+    "right": {
+      "type": "NumericLiteral",
+      "value": "2",
+    },
+    "type": "BinaryExpression",
+  },
+  "operator": "Addition",
+  "right": {
+    "type": "NumericLiteral",
+    "value": "3",
+  },
+  "type": "BinaryExpression",
+}
+`;
+
+exports[`binaryExpression 4 * 7 + a * b 1`] = `
+{
+  "left": {
+    "left": {
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    "operator": "Multiplication",
+    "right": {
+      "type": "NumericLiteral",
+      "value": "7",
+    },
+    "type": "BinaryExpression",
+  },
+  "operator": "Addition",
+  "right": {
+    "left": {
+      "name": "a",
+      "type": "UntypedVariable",
+    },
+    "operator": "Multiplication",
+    "right": {
+      "name": "b",
+      "type": "UntypedVariable",
+    },
+    "type": "BinaryExpression",
+  },
+  "type": "BinaryExpression",
+}
+`;
+
+exports[`binaryExpression 4 + 5 1`] = `
+{
+  "left": {
+    "type": "NumericLiteral",
+    "value": "4",
+  },
+  "operator": "Addition",
+  "right": {
+    "type": "NumericLiteral",
+    "value": "5",
+  },
+  "type": "BinaryExpression",
+}
+`;
+
+exports[`binaryExpression a + b 1`] = `
+{
+  "left": {
+    "name": "a",
+    "type": "UntypedVariable",
+  },
+  "operator": "Addition",
+  "right": {
+    "name": "b",
+    "type": "UntypedVariable",
+  },
+  "type": "BinaryExpression",
+}
+`;

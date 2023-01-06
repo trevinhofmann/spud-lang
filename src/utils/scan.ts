@@ -6,6 +6,7 @@ import reservedWords from './reservedWords';
 
 const commentRegex = /^\/\/.*/u;
 const integerRegex = /^[0-9]+/u;
+const stringRegex = /^'[^']*'/u;
 const wordRegex = /^[_a-zA-Z][_a-zA-Z0-9]*/u;
 
 type Scanner = (remainingText: string) => PartialToken | undefined;
@@ -35,7 +36,17 @@ const integerScanner: Scanner = (remainingText) => {
   const matches = integerRegex.exec(remainingText);
   if (matches !== null) {
     return {
-      type: TokenType.Integer,
+      type: TokenType.IntegerLiteral,
+      characters: matches[0],
+    };
+  }
+};
+
+const stringScanner: Scanner = (remainingText) => {
+  const matches = stringRegex.exec(remainingText);
+  if (matches !== null) {
+    return {
+      type: TokenType.StringLiteral,
       characters: matches[0],
     };
   }
@@ -64,6 +75,7 @@ const scanners = [
   commentScanner,
   symbolScanner,
   integerScanner,
+  stringScanner,
   wordScanner,
 ];
 
@@ -78,7 +90,7 @@ export default (characters: string): Token[] => {
       undefined,
     );
     if (partialToken === undefined) {
-      throw new Error('Unable to scan token');
+      throw new Error(`Unable to scan token at ${remainingText}`);
     }
     Logger.info('Scanned token', { tokenType: partialToken.type, characters: partialToken.characters });
     tokens.push({
