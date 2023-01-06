@@ -1,8 +1,8 @@
 import Logger from 'eleventh';
 import { TokenType } from '../types/tokens';
 import type { Token, PartialToken } from '../types/tokens';
-import symbols from './symbols';
-import reservedWords from './reservedWords';
+import symbols from '../utils/symbols';
+import reservedWords from '../utils/reservedWords';
 
 const commentRegex = /^\/\/.*/u;
 const integerRegex = /^[0-9]+/u;

@@ -1,4 +1,4 @@
-import scan from '../../../src/utils/scan';
+import scan from '../../../src/scan';
 import binaryExpression from '../../../src/parse/parsers/binaryExpression';
 import TokenStream from '../../../src/parse/TokenStream';
 

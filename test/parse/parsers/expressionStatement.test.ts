@@ -1,4 +1,4 @@
-import scan from '../../../src/utils/scan';
+import scan from '../../../src/scan';
 import expressionStatement from '../../../src/parse/parsers/expressionStatement';
 import TokenStream from '../../../src/parse/TokenStream';
 

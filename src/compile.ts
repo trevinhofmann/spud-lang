@@ -1,4 +1,4 @@
-import scan from './utils/scan';
+import scan from './scan';
 import parse from './parse';
 
 export default (file: string): string => {

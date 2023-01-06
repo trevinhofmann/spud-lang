@@ -1,4 +1,4 @@
-import scan from '../../../src/utils/scan';
+import scan from '../../../src/scan';
 import functionCall from '../../../src/parse/parsers/functionCall';
 import TokenStream from '../../../src/parse/TokenStream';
 
