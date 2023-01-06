@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`functionCall max() 1`] = `
+{
+  "arguments": [],
+  "functionName": "max",
+  "type": "FunctionCall",
+}
+`;
+
+exports[`functionCall sum(a, b) 1`] = `
+{
+  "arguments": [
+    {
+      "name": "a",
+      "type": "UntypedVariable",
+    },
+    {
+      "name": "b",
+      "type": "UntypedVariable",
+    },
+  ],
+  "functionName": "sum",
+  "type": "FunctionCall",
+}
+`;

@@ -66,13 +66,20 @@ export type BooleanLiteral = {
   value: boolean;
 };
 
+export type FunctionCall = {
+  type: 'FunctionCall';
+  functionName: string;
+  arguments: Expression[];
+};
+
 export type Expression =
 | UntypedVariable
 | NumericLiteral
 | StringLiteral
 | BooleanLiteral
 | UnaryExpression
-| BinaryExpression;
+| BinaryExpression
+| FunctionCall;
 
 export type AssignmentStatement = {
   type: 'AssignmentStatement';

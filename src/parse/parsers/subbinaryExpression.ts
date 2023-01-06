@@ -5,6 +5,7 @@ import numericLiteral from './numericLiteral';
 import stringLiteral from './stringLiteral';
 import booleanLiteral from './booleanLiteral';
 import untypedVariable from './untypedVariable';
+import functionCall from './functionCall';
 
 export default (tokenStream: TokenStream): Expression => {
   if (tokenStream.has(unaryExpression)) {
@@ -19,8 +20,11 @@ export default (tokenStream: TokenStream): Expression => {
   if (tokenStream.has(booleanLiteral)) {
     return tokenStream.read(booleanLiteral);
   }
+  if (tokenStream.has(functionCall)) {
+    return tokenStream.read(functionCall);
+  }
   if (tokenStream.has(untypedVariable)) {
     return tokenStream.read(untypedVariable);
   }
-  throw tokenStream.error('Expeced a "subbinary" expression');
+  throw tokenStream.error('Expected a "subbinary" expression');
 };

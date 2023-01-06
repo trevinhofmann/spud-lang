@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`assignmentStatement 	a = 4 + 5
+ 1`] = `
+{
+  "left": {
+    "name": "a",
+    "type": "UntypedVariable",
+  },
+  "operator": "Assignment",
+  "right": {
+    "left": {
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    "operator": "Addition",
+    "right": {
+      "type": "NumericLiteral",
+      "value": "5",
+    },
+    "type": "BinaryExpression",
+  },
+  "type": "AssignmentStatement",
+}
+`;
+
+exports[`assignmentStatement 	a = max(a, b)
+ 1`] = `
+{
+  "left": {
+    "name": "a",
+    "type": "UntypedVariable",
+  },
+  "operator": "Assignment",
+  "right": {
+    "arguments": [
+      {
+        "name": "a",
+        "type": "UntypedVariable",
+      },
+      {
+        "name": "b",
+        "type": "UntypedVariable",
+      },
+    ],
+    "functionName": "max",
+    "type": "FunctionCall",
+  },
+  "type": "AssignmentStatement",
+}
+`;
+
+exports[`assignmentStatement 	uint a = 4 + 5
+ 1`] = `
+{
+  "left": {
+    "name": "a",
+    "type": "TypedVariable",
+    "variableType": "Uint",
+  },
+  "operator": "Assignment",
+  "right": {
+    "left": {
+      "type": "NumericLiteral",
+      "value": "4",
+    },
+    "operator": "Addition",
+    "right": {
+      "type": "NumericLiteral",
+      "value": "5",
+    },
+    "type": "BinaryExpression",
+  },
+  "type": "AssignmentStatement",
+}
+`;

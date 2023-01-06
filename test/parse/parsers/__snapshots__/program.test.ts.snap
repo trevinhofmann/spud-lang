@@ -69,3 +69,133 @@ exports[`program function sum
   "type": "Program",
 }
 `;
+
+exports[`program import print from 'print'
+import max from './max'
+import sum from './sum'
+import product from './product'
+
+function main
+
+	uint four = max(3, 4)
+	uint nine = sum(four, 5)
+	uint eighteen = product(2, nine)
+	print(eighteen)
+ 1`] = `
+{
+  "declarations": [
+    {
+      "name": "print",
+      "source": "'print'",
+      "type": "ImportDeclaration",
+    },
+    {
+      "name": "max",
+      "source": "'./max'",
+      "type": "ImportDeclaration",
+    },
+    {
+      "name": "sum",
+      "source": "'./sum'",
+      "type": "ImportDeclaration",
+    },
+    {
+      "name": "product",
+      "source": "'./product'",
+      "type": "ImportDeclaration",
+    },
+    {
+      "body": [
+        {
+          "left": {
+            "name": "four",
+            "type": "TypedVariable",
+            "variableType": "Uint",
+          },
+          "operator": "Assignment",
+          "right": {
+            "arguments": [
+              {
+                "type": "NumericLiteral",
+                "value": "3",
+              },
+              {
+                "type": "NumericLiteral",
+                "value": "4",
+              },
+            ],
+            "functionName": "max",
+            "type": "FunctionCall",
+          },
+          "type": "AssignmentStatement",
+        },
+        {
+          "left": {
+            "name": "nine",
+            "type": "TypedVariable",
+            "variableType": "Uint",
+          },
+          "operator": "Assignment",
+          "right": {
+            "arguments": [
+              {
+                "name": "four",
+                "type": "UntypedVariable",
+              },
+              {
+                "type": "NumericLiteral",
+                "value": "5",
+              },
+            ],
+            "functionName": "sum",
+            "type": "FunctionCall",
+          },
+          "type": "AssignmentStatement",
+        },
+        {
+          "left": {
+            "name": "eighteen",
+            "type": "TypedVariable",
+            "variableType": "Uint",
+          },
+          "operator": "Assignment",
+          "right": {
+            "arguments": [
+              {
+                "type": "NumericLiteral",
+                "value": "2",
+              },
+              {
+                "name": "nine",
+                "type": "UntypedVariable",
+              },
+            ],
+            "functionName": "product",
+            "type": "FunctionCall",
+          },
+          "type": "AssignmentStatement",
+        },
+        {
+          "expression": {
+            "arguments": [
+              {
+                "name": "eighteen",
+                "type": "UntypedVariable",
+              },
+            ],
+            "functionName": "print",
+            "type": "FunctionCall",
+          },
+          "type": "ExpressionStatement",
+        },
+      ],
+      "name": "main",
+      "parameters": [],
+      "returnType": "Undefined",
+      "type": "FunctionDeclaration",
+    },
+  ],
+  "statements": [],
+  "type": "Program",
+}
+`;
