@@ -13,7 +13,7 @@
     "build": "tsc"
   },
   "keywords": [],
-  "author": "",
+  "author": "Trevin Hofmann <trevinhofmann@gmail.com>",
   "license": "Unlicense",
   "dependencies": {
     "eleventh": "1.1.0"
